@@ -2,11 +2,11 @@
 #  Author: Paul Coward
 #  Purpose: To send mail in ADW_MAIL_SENT table in Application Data Warehouse
 # 
-#  Date:  Mar 5/2021
+#  Date:  Jan 8,2022
 #
 #  Modifications
 #    Revision     Author          Date            Description
-#    1			  Paul Coward	 Mar  5,2021      Initial Version
+#    1	         Paul Coward     Jan 8,2022      Initial Version
 #
 import argparse
 import cx_Oracle
