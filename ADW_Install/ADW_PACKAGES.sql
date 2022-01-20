@@ -1272,7 +1272,7 @@ CREATE OR REPLACE PACKAGE BODY ADW_ETL AS
 --    N/A
 --
 -- HISTORY:
---  Feb 19-2021  P. Coward        Initial Version
+--  Mar 19-2021  P. Coward        Initial Version
 -----------------------------------------------------------------------------------------------------------
 
 -- Declare  Local procedures
@@ -1288,7 +1288,7 @@ CREATE OR REPLACE PACKAGE BODY ADW_ETL AS
 --
 -- Declare Global Variables
 --
-     g_PACKAGE_VERSION  CONSTANT VARCHAR(20) := 'V1.0.0(Feb 19,2021)';
+     g_PACKAGE_VERSION  CONSTANT VARCHAR(20) := 'V1.0.0(Mar 19,2021)';
 	 
 	 
      g_PROCESS_NAME        VARCHAR(20) := 'ADW_ETL';
@@ -2212,14 +2212,14 @@ CREATE OR REPLACE PACKAGE BODY ADW_NOTIFY AS
 --   This Package enables notifications required for data reporting
 --
 -- HISTORY:                
---  23-Apr-2021   Paul Coward Initial Version
+--  23-May-2021   Paul Coward Initial Version
 -----------------------------------------------------------------------------------------------------------
 -- Declare mail procedure as local function
 
 -----------------------------------------------------------------------------------------------------------
 -- Declare Global Variables
 
-  g_PACKAGE_VERSION  CONSTANT VARCHAR(256) := 'ADW_NOTIFY V1.0.0 (Apr 23,2021)';
+  g_PACKAGE_VERSION  CONSTANT VARCHAR(256) := 'ADW_NOTIFY V1.0.0 (May 23,2021)';
   
   g_NotifyName  VARCHAR2(40);
 
@@ -2664,7 +2664,7 @@ CREATE OR REPLACE PACKAGE BODY ADW_MAIL AS
 --    N/A
 --
 -- HISTORY:
---  16-Apr-2021    P. Coward  Initial version
+--  16-Jun-2021    P. Coward  Initial version
 --
 -----------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------
@@ -2673,7 +2673,7 @@ CREATE OR REPLACE PACKAGE BODY ADW_MAIL AS
 --
 -- Declare Global Variables
 --
-   g_PACKAGE_VERSION  CONSTANT VARCHAR(60) := 'ADW_MAIL V1.0.0 (Apr 16,2021)';
+   g_PACKAGE_VERSION  CONSTANT VARCHAR(60) := 'ADW_MAIL V1.0.0 (Jun 16,2021)';
 
 -----------------------------------------------------------------------------------------------------------
 --
@@ -2811,7 +2811,7 @@ PROCEDURE MailMessage(p_ReportName IN VARCHAR2, p_MessageType IN VARCHAR2,p_Proc
       v_DestinationEmail  VARCHAR2(250);
       v_SubjectLine       VARCHAR2(250);
 
-      v_SourceEmail       VARCHAR2(250) := 'pcoward@shaw.ca';
+      v_SourceEmail       VARCHAR2(250) := '<your e-mail>';
       v_Subject           VARCHAR2(250) := 'Oracle Security Alert for ';
       v_MailHost          VARCHAR2(50) := 'smtp.us-ashburn-1.oci.oraclecloud.com';
       v_BodyText          VARCHAR2(4000)  := '';
@@ -3044,7 +3044,6 @@ CREATE OR REPLACE PROCEDURE ADW_SAMPLE_BUILD AS
     Stage_Exception EXCEPTION;
     PRAGMA EXCEPTION_INIT(Stage_Exception, -20001);
 BEGIN
-    ADW_PROCESS.CLEAR_SESSION;
 	ADW_PROCESS.PROCESS_BEGIN('ADW_SAMPLE_BUILD');
 
 	ADW_ETL.LOAD_APP('<APPLICATION_NAME>');
@@ -3064,38 +3063,5 @@ EXCEPTION
 END ADW_SAMPLE_BUILD;
 
 /
-
-PROMPT   --------------------------------------------------------------------------------'
-PROMPT   -- ADW Base Hourly schedule
-
-BEGIN
- dbms_scheduler.create_schedule ('ADW_WORKDAY_00_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=000000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) Midnight');
- dbms_scheduler.create_schedule ('ADW_WORKDAY_01_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=010000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) 1:00 AM');
- dbms_scheduler.create_schedule ('ADW_WORKDAY_02_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=020000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) 2:00 AM');
- dbms_scheduler.create_schedule ('ADW_WORKDAY_03_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=030000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) 3:00 AM');
- dbms_scheduler.create_schedule ('ADW_WORKDAY_04_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=040000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) 4:00 AM');
- dbms_scheduler.create_schedule ('ADW_WORKDAY_05_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=050000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) 5:00 AM');
- dbms_scheduler.create_schedule ('ADW_WORKDAY_06_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=060000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) 6:00 AM');
- dbms_scheduler.create_schedule ('ADW_WORKDAY_07_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=070000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) 7:00 AM');
- dbms_scheduler.create_schedule ('ADW_WORKDAY_08_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=080000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) 8:00 AM');
- dbms_scheduler.create_schedule ('ADW_WORKDAY_09_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=090000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) 9:00 AM');
- dbms_scheduler.create_schedule ('ADW_WORKDAY_10_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=100000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) 10:00 AM');
- dbms_scheduler.create_schedule ('ADW_WORKDAY_11_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=110000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) 11:00 AM');
- dbms_scheduler.create_schedule ('ADW_WORKDAY_12_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=120000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) 12:00 AM');
- dbms_scheduler.create_schedule ('ADW_WORKDAY_13_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=130000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) 1:00 PM');
- dbms_scheduler.create_schedule ('ADW_WORKDAY_14_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=140000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) 2:00 PM');
- dbms_scheduler.create_schedule ('ADW_WORKDAY_15_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=150000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) 3:00 PM');
- dbms_scheduler.create_schedule ('ADW_WORKDAY_16_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=160000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) 4:00 PM');
- dbms_scheduler.create_schedule ('ADW_WORKDAY_17_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=170000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) 5:00 PM');
- dbms_scheduler.create_schedule ('ADW_WORKDAY_18_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=180000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) 6:00 PM');
- dbms_scheduler.create_schedule ('ADW_WORKDAY_19_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=190000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) 7:00 PM');
- dbms_scheduler.create_schedule ('ADW_WORKDAY_20_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=200000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) 8:00 PM');
- dbms_scheduler.create_schedule ('ADW_WORKDAY_21_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=210000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) 9:00 PM');
- dbms_scheduler.create_schedule ('ADW_WORKDAY_22_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=220000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) 10:00 PM');
- dbms_scheduler.create_schedule ('ADW_WORKDAY_23_00_SCH',repeat_interval =>'FREQ=DAILY;BYTIME=230000;BYDAY=MON,TUE,WED,THU,FRI',comments =>'Workday (Mon-Fri) 11:00 PM');
- 
-END;
-  
-
 
 
