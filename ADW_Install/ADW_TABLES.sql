@@ -5,10 +5,11 @@ PROMPT   -- ADW_APPLICATION
 PROMPT
 CREATE TABLE ADW_APPLICATION
 (
-  APP_ID              VARCHAR2(4)          NOT NULL,
+  APP_ID              VARCHAR2(8)          NOT NULL,
   DATA_OWNER          VARCHAR2(256),
   DATA_STEWARD        VARCHAR2(256),
   DATA_CUSTODIAN      VARCHAR2(256),
+  SOR                 varchar2(256),
   DESCRIPTION         VARCHAR2(2000),
   ROW_CREATE_USER     VARCHAR2(40)         DEFAULT sys_context( 'userenv', 'os_user' ),
   ROW_CREATE_DATE     DATE                 DEFAULT sysdate,
@@ -20,7 +21,8 @@ CREATE TABLE ADW_APPLICATION
 COMMENT ON COLUMN ADW_APPLICATION.APP_ID                is 'Application unique prefix';
 COMMENT ON COLUMN ADW_APPLICATION.DATA_OWNER            is 'Application Data Owner';
 COMMENT ON COLUMN ADW_APPLICATION.DATA_STEWARD          is 'Applciation Data Steward';
-COMMENT ON COLUMN ADW_APPLICATION.DATA_CUSTODIAN        is 'Applciation Data Custodian';
+COMMENT ON COLUMN ADW_APPLICATION.DATA_CUSTODIAN        is 'Application Data Custodian';
+COMMENT ON COLUMN ADW_APPLICATION.SOR                   is 'Application System of Record';
 COMMENT ON COLUMN ADW_APPLICATION.DESCRIPTION           is 'Application Description';
 COMMENT ON COLUMN ADW_APPLICATION.ROW_CREATE_USER       is 'User who created row';
 COMMENT ON COLUMN ADW_APPLICATION.ROW_CREATE_DATE       is 'Date Row Created';
