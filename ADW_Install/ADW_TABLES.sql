@@ -9,7 +9,7 @@ CREATE TABLE ADW_APPLICATION
   DATA_OWNER          VARCHAR2(256),
   DATA_STEWARD        VARCHAR2(256),
   DATA_CUSTODIAN      VARCHAR2(256),
-  SOR                 varchar2(256),
+  SOR                 VARCHAR2(256),
   DESCRIPTION         VARCHAR2(2000),
   ROW_CREATE_USER     VARCHAR2(40)         DEFAULT sys_context( 'userenv', 'os_user' ),
   ROW_CREATE_DATE     DATE                 DEFAULT sysdate,
