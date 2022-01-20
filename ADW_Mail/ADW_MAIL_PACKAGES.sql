@@ -33,7 +33,7 @@ CREATE OR REPLACE PACKAGE BODY ADW_MAIL AS
 --    N/A
 --
 -- HISTORY:
---  16-Apr-2021    P. Coward  Initial version
+--  16-May-2021    P. Coward  Initial version
 --
 -----------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------
@@ -180,7 +180,7 @@ PROCEDURE MailMessage(p_ReportName IN VARCHAR2, p_MessageType IN VARCHAR2,p_Proc
       v_DestinationEmail  VARCHAR2(250);
       v_SubjectLine       VARCHAR2(250);
 
-      v_SourceEmail       VARCHAR2(250) := 'pcoward@shaw.ca';
+      v_SourceEmail       VARCHAR2(250) := '<your email>';
       v_Subject           VARCHAR2(250) := 'Oracle Security Alert for ';
       v_MailHost          VARCHAR2(50) := 'smtp.us-ashburn-1.oci.oraclecloud.com';
       v_BodyText          VARCHAR2(4000)  := '';
