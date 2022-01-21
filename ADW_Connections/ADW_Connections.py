@@ -452,7 +452,7 @@ if __name__ == "__main__":
     v_Version = "V 1.0.1 Jan 8,2022"
     v_parser = argparse.ArgumentParser(prog=v_ProgramName,
             description='To edit contents of Application Data Warehouse (ADW) configuration access file')
-    v_parser.add_argument('-Config', default=r"c:\Temp\ADW_CONNECT.ini",
+    v_parser.add_argument('-Config', default=r"c:\ADW\ADW_Connections.ini",
                         help= "Configuration file to Edit")
     v_parser.add_argument('-Password', default=r"None",
                         help= "ADWAmin Password for localhost/orcl")
@@ -477,7 +477,7 @@ if __name__ == "__main__":
         Config = configparser.ConfigParser()
 
         Config.add_section("Services")
-        v_code1=ADWEncode(r"Oracle,ADW,ADWADMIN,localhost/orcl,N,ADWADMIN,<Your Password>" )
+        v_code1=ADWEncode(r"Oracle,ADW,ADWADMIN,host,N,ADWADMIN,<Your Password>" )
         Config.set("Services", "ADW_PROD", v_code1)
         
         Config.write(cfgfile)
