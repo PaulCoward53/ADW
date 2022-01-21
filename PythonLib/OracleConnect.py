@@ -22,7 +22,7 @@ from ADWUtility import ADWDecode
 
 class OracleConnect(object):
 
-    def __init__(self,ServiceName, ConfigFile=r"c:\Temp\ADW_CONNECTIONS.ini" ): 
+    def __init__(self,ServiceName, ConfigFile=r"c:\ADW\ADW_Connections.ini" ): 
     
         self.service_name   = ServiceName
         self.config_file    = ConfigFile
