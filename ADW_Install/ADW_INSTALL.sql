@@ -6,7 +6,7 @@
 -- Change CD to your install directory
 -- Run script
 --
-cd C:\ADW\Install
+cd C:\ADW\ADW_Install
 spool ADW_INSTALL.log
 --
 --
