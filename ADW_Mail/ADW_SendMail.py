@@ -28,7 +28,7 @@ v_parser.add_argument('-Connection', default=r"ADW_PROD",
                       help= "ADW Connection to use")
 v_parser.add_argument('-Sender', default=r"<valid sender account>",
                       help= "Who Mail Sent from")
-v_parser.add_argument('-STMP', default=r"mail.shaw.ca",
+v_parser.add_argument('-STMP', default=r"<your mail server>",
                       help= "STMP Mail server")
 v_parser.add_argument('--version', action='version', version=v_ProgramName + " " + v_Version)
 
