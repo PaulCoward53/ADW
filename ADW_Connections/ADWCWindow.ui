@@ -93,6 +93,7 @@
     </property>
     <property name="font">
      <font>
+      <family>Arial</family>
       <pointsize>10</pointsize>
      </font>
     </property>
@@ -178,6 +179,11 @@
       <height>121</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+     </font>
+    </property>
     <property name="title">
      <string>Database Login</string>
     </property>
@@ -189,6 +195,11 @@
        <width>141</width>
        <height>17</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+      </font>
      </property>
      <property name="text">
       <string>LDAP Authentication</string>
@@ -270,6 +281,11 @@
        <height>23</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+      </font>
+     </property>
      <property name="text">
       <string>Test Login</string>
      </property>
@@ -285,6 +301,11 @@
        <width>75</width>
        <height>23</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+      </font>
      </property>
      <property name="text">
       <string>Set Password</string>
@@ -319,6 +340,11 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+     </font>
+    </property>
    </widget>
    <widget class="QLineEdit" name="txtCatalogName">
     <property name="geometry">
@@ -328,6 +354,11 @@
       <width>181</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+     </font>
     </property>
     <property name="echoMode">
      <enum>QLineEdit::Normal</enum>
@@ -342,6 +373,11 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+     </font>
+    </property>
     <property name="echoMode">
      <enum>QLineEdit::Normal</enum>
     </property>
@@ -354,6 +390,11 @@
       <width>181</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+     </font>
     </property>
     <property name="echoMode">
      <enum>QLineEdit::Normal</enum>
@@ -368,6 +409,11 @@
       <height>23</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+     </font>
+    </property>
     <property name="text">
      <string>Add Service</string>
     </property>
@@ -380,6 +426,11 @@
       <width>80</width>
       <height>23</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+     </font>
     </property>
     <property name="text">
      <string>Delete Service</string>
@@ -394,6 +445,11 @@
       <height>23</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+     </font>
+    </property>
     <property name="text">
      <string>Save File</string>
     </property>
@@ -407,6 +463,11 @@
       <height>23</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+     </font>
+    </property>
     <property name="text">
      <string>Reload File</string>
     </property>
@@ -419,6 +480,11 @@
       <width>71</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+     </font>
     </property>
     <property name="text">
      <string>Oracle</string>
@@ -435,6 +501,11 @@
       <width>81</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+     </font>
     </property>
     <property name="text">
      <string>SQL Server</string>
@@ -465,6 +536,11 @@
   <action name="actionSave">
    <property name="text">
     <string>Save</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+    </font>
    </property>
   </action>
   <action name="actionSave_As">

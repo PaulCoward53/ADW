@@ -349,6 +349,7 @@ class ADWConnectionsWindow(qtw.QMainWindow ):
         self.ui.txtServiceName.setText(self.serviceName[idx])
         self.ui.txtCatalogName.setText(self.serviceCatalog[idx])
         self.ui.txtSchemaName.setText(self.serviceSchema[idx])
+        self.ui.txtServerName.setText(self.serviceServer[idx])
 
         if self.serviceType[idx] == 'Oracle':
             self.ui.rbtnOracle.setChecked(True)
@@ -378,7 +379,6 @@ class ADWConnectionsWindow(qtw.QMainWindow ):
         self.ui.txtUserName.setText(self.serviceUserName[idx])
         self.ui.txtPassword.setText(self.servicePassword[idx])
 
-        self.ui.txtServerName.setText(self.serviceServer[idx])
 
         self.ui.txtServiceName.setEnabled(False)
         
@@ -477,7 +477,7 @@ if __name__ == "__main__":
         Config = configparser.ConfigParser()
 
         Config.add_section("Services")
-        v_code1=ADWEncode(r"Oracle,ADW,ADWADMIN,host,N,ADWADMIN,<Your Password>" )
+        v_code1=ADWEncode(r"Oracle,ADW,ADWADMIN,Host,N,ADWADMIN,<Your Password>" )
         Config.set("Services", "ADW_PROD", v_code1)
         
         Config.write(cfgfile)
